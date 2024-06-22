@@ -21,7 +21,7 @@ public class UserController {
     @PostMapping
     public User createUser(@RequestBody User user) {
         rabbitMQProducerService.sendMessage(user);
-        return userService.saveUser(user);
+        return user;
     }
 
     @GetMapping
